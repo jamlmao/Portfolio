@@ -3,15 +3,12 @@ import {Finlandica } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-providers";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Data } from "@/data/data";
-import { cn } from "@/lib/utils";
+
 
 const finlandica = Finlandica({
   variable: "--font-finlandica",
   subsets: ["latin"],
 });
-
-
 
 export const metadata: Metadata = {
   title: "Kodeejam",
@@ -24,11 +21,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${finlandica.variable} antialiased`}
+        suppressHydrationWarning
       >
-          <ThemeProvider attribute="class" defaultTheme="light">
+          <ThemeProvider 
+            attribute="class" 
+            defaultTheme="system" 
+            enableSystem
+            disableTransitionOnChange
+          >
             <TooltipProvider delayDuration={0}>
               {children}
             </TooltipProvider>

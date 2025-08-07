@@ -1,10 +1,17 @@
 import { Icons } from "@/components/Icons";
-import { HomeIcon, NotebookIcon } from "lucide-react";
+import { BriefcaseIcon, Folder, HomeIcon, Mail, User } from "lucide-react";
 
+
+export type PageType = 'home' | 'about' | 'projects' | 'contact';
+export interface NavbarProps {
+  orientation: "vertical" | "horizontal";
+  onPageChange: (page: PageType) => void;
+  currentPage: PageType;
+}
 
 export const Data = {
-     name: "John Agustin",
-     description: "Beginner web developer on a mission to learn by building. I enjoy turning ideas into real projects and sharing what I learn along the way. Always exploring, always improving.",
+     name: "Jam",
+     description: "Full Stack Web Developer | Eager to Learn, Ready to Deliver",
      summary:"I'm a web developer in progress, currently building up my skills one project at a time. I enjoy turning ideas into functional and user-friendly websites, learning as I go through hands-on practice and real-world challenges.I don't have years of experience (yet), but what I do have is curiosity, dedication, and a passion for creating things that work and look good. I believe the best way to grow is by doing — and that's exactly what I'm here for.",
      avatarUrl: "/images/me.jpg",
      skills:[
@@ -18,7 +25,11 @@ export const Data = {
         "JAVA",
      ],
       navbar: [
-        { href: "/", icon: HomeIcon, label: "Home" },
+        { href: "/", icon: HomeIcon, page:"home", label: "Home" },
+        { href: "/about", icon: User, page:"about", label: "About" },
+        { href: "/projects", icon: Folder, page:"projects", label: "Projects Experience" },
+        { href: "/work", icon: BriefcaseIcon, page:"work", label: "Work Experience" },
+        { href: "/contact", icon: Mail, page:"contact", label: "Contact" },
      ],
       contact:{
         email:"agustinjohnrome@gmail.com",
