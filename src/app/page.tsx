@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import { PageType } from "@/data/data";
 import { useState } from "react";
 import AboutPage from "./(about)/about/page";
+import { BlurFade } from "@/components/magicui/blur-fade";
 
 
 
@@ -32,7 +33,10 @@ export default function Home() {
   return (
       <div className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background px-4 py-8 sm:px-8 min-h-screen">
         {renderContent()}
-        <Navbar orientation="horizontal" onPageChange={setCurrentPage} currentPage={currentPage} />
+
+        <BlurFade direction="right" delay={0.25}> 
+          <Navbar orientation="horizontal" onPageChange={setCurrentPage} currentPage={currentPage} />
+        </BlurFade>
     </div>
   );
 }

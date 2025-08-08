@@ -28,7 +28,7 @@ const Navbar = ({ orientation, onPageChange, currentPage }: NavbarProps)  => {
     };
   return (
      <TooltipProvider>
-        <Dock direction="middle" orientation={orientation} className="dark:bg-white/90 bg-zinc-700/90 backdrop-blur-sm rounded-lg shadow-lg dark:shadow-2xl dark:shadow-zinc-50/30">
+        <Dock direction="middle" orientation={orientation} className="dark:bg-white/90 bg-zinc-700/90 backdrop-blur-sm rounded-lg shadow-lg dark:shadow-2xl dark:shadow-zinc-50/30 ">
           {Data.navbar.map((item) => (
             <DockIcon key={item.label} >
               <Tooltip>
@@ -51,9 +51,9 @@ const Navbar = ({ orientation, onPageChange, currentPage }: NavbarProps)  => {
               </Tooltip>
             </DockIcon>
           ))}
-          <Separator orientation="vertical" className="h-full bg-white/90 dark:bg-zinc-700/90" />
+          <Separator orientation="vertical" className="h-full bg-white/90 dark:bg-zinc-700/90 hidden sm:flex" />
           {Object.entries(Data.contact.social).map(([name, social]) => (
-            <DockIcon key={name}>
+            <DockIcon key={name} className="hidden sm:flex">
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
@@ -62,7 +62,7 @@ const Navbar = ({ orientation, onPageChange, currentPage }: NavbarProps)  => {
                     aria-label={social.name}
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full hover:bg-gray-800 dark:hover:bg-white/90",
+                      "size-12 rounded-full hover:bg-gray-800 dark:hover:bg-white/90 ",
                     )}
                   >
                     <social.icon className="size-4 text-white dark:text-black hover:bg-dark" />
