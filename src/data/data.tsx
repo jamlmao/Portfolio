@@ -12,7 +12,7 @@ export interface NavbarProps {
 export const Data = {
      name: "Jam",
      description: "Full Stack Web Developer | Eager to Learn, Ready to Deliver",
-     summary:"I'm a web developer in progress, currently building up my skills one project at a time. I enjoy turning ideas into functional and user-friendly websites, learning as I go through hands-on practice and real-world challenges.I don't have years of experience (yet), but what I do have is curiosity, dedication, and a passion for creating things that work and look good. I believe the best way to grow is by doing and that's exactly what I'm here for.",
+     summary:"I'm a web developer who enjoys turning ideas into functional, user-friendly websites through hands-on practice and real-world projects. While I don't have formal work experience yet, I bring curiosity, dedication, and a passion for creating solutions that work seamlessly and look great. I believe the best way to grow is by building, experimenting, and learning and that's exactly what I'm doing",
      avatarUrl: "/images/me.jpg",
      skills:[
         "React",
