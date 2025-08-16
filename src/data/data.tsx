@@ -2,7 +2,19 @@ import { Icons } from "@/components/Icons";
 import { BriefcaseIcon, Folder, HomeIcon, Mail, User } from "lucide-react";
 
 
-export type PageType = 'home' | 'about' | 'projects' | 'contact';
+export type PageType = 'home' | 'about' | 'projects' | 'contact'|'work';
+
+export interface WorkProps {
+  company: string;
+  position: string;
+  start: string;
+  end: string;
+  description: string;
+  logoUrl: string;
+  href: string;
+}
+
+
 export interface NavbarProps {
   orientation: "vertical" | "horizontal";
   onPageChange: (page: PageType) => void;
@@ -54,10 +66,10 @@ export const Data = {
             company:"Accenture",
             position:"Accenture Academy Trainee - Software Engineering",
             start:"March 2025",
-            end:"July 2025",
+            end:"June 2025",
             description:"Completed an intensive 4-month intership program focused on core Java development and software engineering principles, successfully passing the post-assessment evaluation, demonstrating proficiency in Java programming concepts",
-            logoUrl: "/ACN.png",
-            href: "https://www.accenture.com/ro-en/careers/local/accenture-academy",
+            logoUrl: "/images/ACN.png",
+            href: "https://drive.google.com/file/d/1hUwdiLmrwADJUBRFgm3HIuDF5nLhgE0l/view?usp=sharing",
         
         }
      ],
@@ -67,7 +79,14 @@ export const Data = {
             href:"https://github.com/jamlmao/ConsTrack-FrontEnd",
             description:"A construction management web application that helps users track and manage construction projects, including tasks, resources, and timelines.",
             date:"August 2024 - October 2024",
-            imageUrl:"/images/constrack.png",
+            logoUrl: "/images/constrack.png",
+            imageUrl:[
+                "/images/c1.jpg",
+                "/images/c2.jpg",
+                "/images/c3.jpg",
+                "/images/c4.jpg",
+                "/images/c5.jpg",
+            ],
             technologies: [
                 {
                     "Angular": Icons.angular,
@@ -81,7 +100,10 @@ export const Data = {
             href:"https://github.com/jamlmao/RentNGo",
             description:"A car rental web application that allows users to browse, book, and manage car rentals online. (REBUILDING)",
             date:"July 2025 -  ",
-            imageUrl:"/images/rentngo.png",
+            logoUrl: "/images/rentngo.png",
+            imageUrl:[
+                "/images/R1.png",
+            ],
             technologies: [
                 {
                     "React": Icons.react,

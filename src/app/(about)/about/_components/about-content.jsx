@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { cn } from '@/lib/utils';
 import { TypingAnimation, AnimatedSpan, Terminal } from '@/components/magicui/terminal';
 import {Data} from '../../../../data/data';
 import { BlurFade } from '@/components/magicui/blur-fade';
