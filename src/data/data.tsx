@@ -61,18 +61,6 @@ export const Data = {
             },
         }
     },
-     work:[
-        {
-            company:"Accenture",
-            position:"Accenture Academy Trainee - Software Engineering",
-            start:"March 2025",
-            end:"June 2025",
-            description:"Completed an intensive 4-month intership program focused on core Java development and software engineering principles, successfully passing the post-assessment evaluation, demonstrating proficiency in Java programming concepts",
-            logoUrl: "/images/ACN.png",
-            href: "https://drive.google.com/file/d/1hUwdiLmrwADJUBRFgm3HIuDF5nLhgE0l/view?usp=sharing",
-        
-        }
-     ],
      projects:[
         {
             title:"Constrack",
