@@ -10,7 +10,7 @@ const ContactMe = () => {
     <BlurFade direction="left" delay={0.25}>
       <div className='flex flex-col items-center gap-4 px-6 py-12 z-10 relative bg-zinc-700/90 rounded-lg shadow-lg w-full mx-auto dark:bg-zinc-200 transition-all duration-300 ease-in-out dark:shadow-zinc-50/30'>
         <div className="w-full max-w-md mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white dark:text-gray-800 mb-2">Let's Connect!</h2>
+          <h2 className="text-3xl font-bold text-white dark:text-gray-800 mb-2">Let&apos;s Connect!</h2>
           
           <p className="text-zinc-300 dark:text-zinc-700 mb-8">
             I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Drop me a line! ✨
