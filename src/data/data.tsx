@@ -65,6 +65,7 @@ export const Data = {
         {
             title:"Constrack",
             href:"https://github.com/jamlmao/ConsTrack-FrontEnd",
+            url:"https://consxtrack.vercel.app",
             description:"A construction management web application that helps users track and manage construction projects, including tasks, resources, and timelines.",
             date:"August 2024 - October 2024",
             logoUrl: "/images/constrack.png",
@@ -76,16 +77,15 @@ export const Data = {
                 "/images/c5.jpg",
             ],
             technologies: [
-                {
-                    "Angular": Icons.angular,
-                    "Laravel": Icons.laravel,
-                    "MySQL": Icons.mysql,
-                }
+                    "Angular",
+                    "Laravel",
+                    "MySQL"
             ]
         },
         {
             title:"Rent N' Go",
             href:"https://github.com/jamlmao/RentNGo",
+            url:"https://car-rental-landing-page-mu.vercel.app",
             description:"A car rental web application that allows users to browse, book, and manage car rentals online. (REBUILDING)",
             date:"July 2025 -  ",
             logoUrl: "/images/rentngo.png",
@@ -93,14 +93,11 @@ export const Data = {
                 "/images/R1.png",
             ],
             technologies: [
-                {
-                    "React": Icons.react,
-                    "Next.js": Icons.nextjs,
-                    "Tailwind CSS": Icons.tailwind,
-                    "TypeScript": Icons.typescript,
-                    "Shadcn": Icons.shadcn,
-                    "Supabase": Icons.supabase,
-                }
+                    "Next.js",
+                    "Tailwind CSS",
+                    "TypeScript",
+                    "Shadcn",
+                    "Supabase",
             ]
         }
      ],

@@ -3,75 +3,125 @@
 import React from 'react'
 import { BlurFade } from '@/components/magicui/blur-fade'
 import { Button } from '@/components/ui/button'
-import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card'
 import { 
   Carousel, 
   CarouselContent, 
   CarouselItem, 
-  CarouselNext, 
-  CarouselPrevious, } from '@/components/ui/carousel'
+ } from '@/components/ui/carousel'
 import Autoplay from "embla-carousel-autoplay"
 import { Data } from '../../../../data/data';
 import Image from 'next/image'
+import { Badge } from '@/components/ui/badge'
+import { Icons } from '@/components/Icons'
+import Link from 'next/link'
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip'
 
+const getTechIcon = (techName: string) => {
+  const iconMap: Record<string, React.ComponentType<any>> = {
+    'Angular': Icons.angular,
+    'Laravel': Icons.laravel,
+    'MySQL': Icons.mysql,
+    'Next.js': Icons.nextjs,
+    'Tailwind CSS': Icons.tailwind,
+    'TypeScript': Icons.typescript,
+    'React': Icons.react,
+    'Shadcn': Icons.shadcn,
+    'Supabase': Icons.supabase
+  };
 
-
+  return iconMap[techName];
+};
 
 
 const ProjectContent = () => {
-  const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
-  )
-
   return (
    <BlurFade direction="left" delay={0.25}>
-      <div className='flex flex-col items-start gap-6 md:gap-8 px-6 py-12 z-10 relative bg-zinc-700/90 rounded-lg shadow-lg w-full mx-auto dark:bg-zinc-200 transition-all duration-300 ease-in-out dark:shadow-zinc-50/30'>
+      <div className='flex flex-col items-start gap-4 md:gap-8 px-6 py-12 z-10 relative bg-zinc-700/90 rounded-lg shadow-lg w-full mx-auto dark:bg-zinc-200 transition-all duration-300 ease-in-out dark:shadow-zinc-50/30'>
         <h2 className="text-2xl font-bold text-white dark:text-gray-800 mb-4">My Projects</h2>
-        
-        {Data.projects.map((project, projectIndex) => (
-          <div key={projectIndex} className="w-full mb-10">
-            <h3 className="text-xl font-semibold text-white dark:text-gray-700 mb-3">{project.title}</h3>
-            <p className="text-white/80 dark:text-gray-600 mb-4">{project.description}</p>
-            
-            <Carousel
-              plugins={[plugin.current]}
-              className="w-full max-w-3xl mx-auto"
-              onMouseEnter={plugin.current.stop}
-              onMouseLeave={plugin.current.reset}
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
+          {Data.projects.map((project, index) => (
+            <div
+              key={index}
+              className="flex flex-col rounded-md dark:border-gray-700 shadow-xl overflow-hidden bg-white dark:bg-gray-800 max-w-md w-full"
             >
-              <CarouselContent>
-                {project.imageUrl.map((image, imageIndex) => (
-                  <CarouselItem key={imageIndex}>
-                    <div className="p-1">
-                      <Card>
-                        <CardContent className="flex aspect-video items-center justify-center p-1 bg-black/20 dark:bg-white/20">
-                          <Image
-                            src={image}
-                            alt={`${project.title} screenshot ${imageIndex + 1}`}
-                            width={800}
-                            height={450}
-                            className="rounded-md object-cover w-full h-full"
-                          />
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
-            
-            <div className="flex gap-2 mt-4 flex-wrap">
-              {Object.entries(project.technologies[0]).map(([tech, Icon]) => (
-                <div key={tech} className="flex items-center gap-1 bg-black/20 dark:bg-white/20 px-3 py-1 rounded-full">
-                  <Icon className="h-4 w-4 text-white dark:text-gray-800" />
-                  <span className="text-sm text-white dark:text-gray-800">{tech}</span>
+              <Carousel
+                plugins={[Autoplay({ 
+                  delay: 1000, 
+                  stopOnInteraction: true 
+                })]}
+                className="w-full max-w-md"
+              >
+                <CarouselContent>
+                  {project.imageUrl.map((image, imgIndex) => (
+                    <CarouselItem key={imgIndex} className="flex justify-center items-center w-full h-64">
+                      <Image
+                        src={image}
+                        alt={`Project ${project.title} - Image ${imgIndex + 1}`}
+                        layout="intrinsic"
+                        width={800} 
+                        height={450} 
+                        className="rounded-t-lg shadow-md"
+                      />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+
+              <div className="flex flex-col gap-3 p-4 grow">
+                <h2 className="text-xl font-bold">{project.title}</h2>
+                <p className="text-sm text-gray-500 dark:text-gray-400 w-full break-words">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-[4px]">
+                  {project.technologies.map((tech, techIndex) => {
+                    const TechIcon = getTechIcon(tech);
+                    return (
+                      <span key={techIndex}>
+                        <Badge className="flex items-center gap-1.5 bg-zinc-200 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200">
+                          {TechIcon && <TechIcon className="h-3.5 w-3.5" />}
+                          {tech}
+                        </Badge>
+                      </span>
+                    );
+                  })}
                 </div>
-              ))}
+                <div className="flex gap-2 mt-auto">
+                <Link href={project.href}>
+                  <Tooltip>
+                     <TooltipTrigger asChild>
+                      <Button variant="default">
+                        <Icons.github className='h-4 w-4' />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Github Repository</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </Link>
+                <Link href={project.url} target='_blank'>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button variant="default">
+                        <Icons.globe className='h-4 w-4' />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Live Demo (Landing Page)</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </Link>
+              </div>
+
+                
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        
+
+        
       </div>
     </BlurFade>
   )

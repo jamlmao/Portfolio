@@ -7,6 +7,8 @@ import AboutPage from "./(about)/about/page";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import WorkPage from "./(work)/work/page";
 import ProjectPage from "./(project)/project/page";
+import Contact from "./(contact)/contact/page";
+
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
@@ -22,8 +24,8 @@ export default function Home() {
         return <WorkPage />;
       case 'projects':
         return <ProjectPage />;
-      // case 'contact':
-      //   return <Contact />;
+      case 'contact':
+        return <Contact />;
       default:
         return <Intro />;
     }

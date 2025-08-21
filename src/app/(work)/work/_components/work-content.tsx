@@ -1,13 +1,13 @@
 import React from 'react'
 import { BlurFade } from '@/components/magicui/blur-fade';
-import { workExperience, ExperienceType, iconMap, IconType, PositionType} from '../../../../data/work';
+import {  ExperienceType, iconMap, PositionType} from '../../../../data/work';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { Separator } from '@/components/ui/separator';
 import ReactMarkdown from 'react-markdown';
-import Link from 'next/link';
-import { ChevronsDownUpIcon, ChevronsUpDownIcon, ExternalLink } from 'lucide-react';
+
+import { ChevronsDownUpIcon, ChevronsUpDownIcon } from 'lucide-react';
 
 
 
@@ -19,15 +19,15 @@ const WorkContent = ({
   experiences: ExperienceType[];
 }) => {
   return (
-     <BlurFade direction="left" delay={0.25}>
-        <div className='flex flex-col items-start gap-6 px-6 py-12 z-10 relative bg-zinc-700/90 rounded-lg shadow-lg w-full mx-auto dark:bg-zinc-200 transition-all duration-300 ease-in-out dark:shadow-zinc-50/30'>
-          <div className={cn("bg-background px-4", className)}>
-            {experiences.map((experience) => (
-              <ExperienceItem key={experience.id} experience={experience} />
-            ))}
-          </div>
+    <BlurFade direction="left" delay={0.25}>
+      <div className='flex flex-col items-start gap-6 px-6 py-12 z-10 relative bg-zinc-700/90 rounded-lg shadow-lg w-full mx-auto dark:bg-zinc-200 transition-all duration-300 ease-in-out dark:shadow-zinc-50/30'>
+        <div className={cn("bg-background px-4 w-full max-w-4xl mx-auto", className)}>
+          {experiences.map((experience) => (
+            <ExperienceItem key={experience.id} experience={experience} />
+          ))}
         </div>
-      </BlurFade>
+      </div>
+    </BlurFade>
   )
 }
 
@@ -168,6 +168,7 @@ function Prose({ className, ...props }: React.ComponentProps<"div">) {
         "prose prose-sm max-w-none font-mono text-foreground prose-zinc dark:prose-invert",
         "prose-a:font-medium prose-a:break-words prose-a:text-foreground prose-a:underline prose-a:underline-offset-4",
         "prose-code:rounded-md prose-code:border prose-code:bg-muted/50 prose-code:px-[0.3rem] prose-code:py-[0.2rem] prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none",
+        "break-words overflow-hidden",
         className
       )}
       {...props}

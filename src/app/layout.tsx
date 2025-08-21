@@ -3,7 +3,7 @@ import {Finlandica } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-providers";
 import { TooltipProvider } from "@/components/ui/tooltip";
-
+import { Toaster } from "@/components/ui/sonner";
 
 const finlandica = Finlandica({
   variable: "--font-finlandica",
@@ -34,6 +34,7 @@ export default function RootLayout({
           >
             <TooltipProvider delayDuration={0}>
               {children}
+              <Toaster position="top-right" richColors />
             </TooltipProvider>
         </ThemeProvider>
       </body>
