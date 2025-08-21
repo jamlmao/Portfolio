@@ -1,6 +1,6 @@
-"use client "
+"use client"
 
-import React from 'react'
+import React, { useRef } from 'react'
 import { BlurFade } from '@/components/magicui/blur-fade'
 import { Button } from '@/components/ui/button'
 import { 
@@ -34,6 +34,16 @@ const getTechIcon = (techName: string) => {
 
 
 const ProjectContent = () => {
+
+   const autoplayRefs = Data.projects.map(() => 
+    useRef(
+      Autoplay({ 
+        delay: 2500,
+        stopOnInteraction: true 
+      })
+    )
+  );
+
   return (
    <BlurFade direction="left" delay={0.25}>
       <div className='flex flex-col items-start gap-4 md:gap-8 px-6 py-12 z-10 relative bg-zinc-700/90 rounded-lg shadow-lg w-full mx-auto dark:bg-zinc-200 transition-all duration-300 ease-in-out dark:shadow-zinc-50/30'>
@@ -46,10 +56,7 @@ const ProjectContent = () => {
               className="flex flex-col rounded-md dark:border-gray-700 shadow-xl overflow-hidden bg-white dark:bg-gray-800 max-w-md w-full"
             >
               <Carousel
-                plugins={[Autoplay({ 
-                  delay: 1000, 
-                  stopOnInteraction: true 
-                })]}
+                plugins={[autoplayRefs[index].current]}
                 className="w-full max-w-md"
               >
                 <CarouselContent>
