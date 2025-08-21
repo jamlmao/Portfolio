@@ -17,7 +17,7 @@ import Link from 'next/link'
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip'
 
 const getTechIcon = (techName: string) => {
-  const iconMap: Record<string, React.ComponentType<any>> = {
+  const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
     'Angular': Icons.angular,
     'Laravel': Icons.laravel,
     'MySQL': Icons.mysql,
