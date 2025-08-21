@@ -9,7 +9,7 @@ import {
   CarouselItem, 
  } from '@/components/ui/carousel'
 import Autoplay from "embla-carousel-autoplay"
-import { Data } from '../../../../data/data';
+import { Data } from '../data/data';
 import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
 import { Icons } from '@/components/Icons'

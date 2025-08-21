@@ -1,6 +1,6 @@
 import React from 'react'
 import { BlurFade } from '@/components/magicui/blur-fade';
-import {  ExperienceType, iconMap, PositionType} from '../../../../data/work';
+import {  ExperienceType, iconMap, PositionType} from '../data/work';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';

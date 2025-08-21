@@ -3,12 +3,14 @@ import Intro from "@/components/Intro";
 import Navbar from "@/components/Navbar";
 import { PageType } from "@/data/data";
 import { useState } from "react";
-import AboutPage from "./(about)/about/page";
 import { BlurFade } from "@/components/magicui/blur-fade";
-import WorkPage from "./(work)/work/page";
-import ProjectPage from "./(project)/project/page";
-import Contact from "./(contact)/contact/page";
+import {workExperience} from '../data/work';
 
+
+import WorkContent from "@/components/work-content";
+import AboutContent from "@/components/about-content";
+import ProjectContent from "@/components/project-content";
+import ContactMe from "@/components/contact-me";
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
@@ -19,13 +21,13 @@ export default function Home() {
       case 'home':
         return <Intro />;
       case 'about':
-        return <AboutPage />;
+        return <AboutContent />;
       case 'work':
-        return <WorkPage />;
+        return <WorkContent experiences={workExperience} />;
       case 'projects':
-        return <ProjectPage />;
+        return <ProjectContent />;
       case 'contact':
-        return <Contact />;
+        return <ContactMe />;
       default:
         return <Intro />;
     }
