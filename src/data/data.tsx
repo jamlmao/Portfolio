@@ -16,9 +16,9 @@ export interface WorkProps {
 
 
 export interface NavbarProps {
-  orientation: "vertical" | "horizontal";
+  orientation: "horizontal" | "vertical";
   onPageChange: (page: PageType) => void;
-  currentPage: PageType;
+  currentPage?: PageType;
 }
 
 export const Data = {
@@ -37,11 +37,11 @@ export const Data = {
         "JAVA",
      ],
       navbar: [
-        { href: "/", icon: HomeIcon, page:"home", label: "Home" },
-        { href: "/about", icon: User, page:"about", label: "About" },
-        { href: "/projects", icon: Folder, page:"projects", label: "Projects Experience" },
-        { href: "/work", icon: BriefcaseIcon, page:"work", label: "Work Experience" },
-        { href: "/contact", icon: Mail, page:"contact", label: "Contact" },
+        { href: "/", icon: HomeIcon, page:"home" as PageType, label: "Home" },
+        { href: "/about", icon: User, page:"about" as PageType , label: "About" },
+        { href: "/projects", icon: Folder, page:"projects" as PageType, label: "Projects Experience" },
+        { href: "/work", icon: BriefcaseIcon, page:"work" as PageType, label: "Work Experience" },
+        { href: "/contact", icon: Mail, page:"contact" as PageType, label: "Contact" },
      ],
       contact:{
         email:"agustinjohnrome@gmail.com",

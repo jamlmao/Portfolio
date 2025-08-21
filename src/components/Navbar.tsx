@@ -15,16 +15,16 @@ import {
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { Dock, DockIcon } from "@/components/magicui/dock";
-import { Data, NavbarProps } from "@/data/data";
+import { Data, NavbarProps, PageType } from "@/data/data";
 
 
 
 
 
 const Navbar = ({ orientation, onPageChange, currentPage }: NavbarProps)  => {
-      const handleNavClick = (e: React.MouseEvent, page: string) => {
+      const handleNavClick = (e: React.MouseEvent, page: PageType) => {
         e.preventDefault(); 
-        onPageChange(page as any); 
+        onPageChange(page); 
     };
   return (
      <TooltipProvider>
