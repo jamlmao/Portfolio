@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef } from 'react'
+import React, { useState, useEffect} from 'react'
 import { BlurFade } from '@/components/magicui/blur-fade'
 import { Button } from '@/components/ui/button'
 import { 
@@ -35,14 +35,12 @@ const getTechIcon = (techName: string) => {
 
 const ProjectContent = () => {
 
-   const autoplayRefs = Data.projects.map(() => 
-    useRef(
-      Autoplay({ 
-        delay: 2500,
-        stopOnInteraction: true 
-      })
-    )
-  );
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
 
   return (
    <BlurFade direction="left" delay={0.25}>
@@ -55,25 +53,36 @@ const ProjectContent = () => {
               key={index}
               className="flex flex-col rounded-md dark:border-gray-700 shadow-xl overflow-hidden bg-white dark:bg-gray-800 max-w-md w-full"
             >
-              <Carousel
-                plugins={[autoplayRefs[index].current]}
-                className="w-full max-w-md"
-              >
-                <CarouselContent>
-                  {project.imageUrl.map((image, imgIndex) => (
-                    <CarouselItem key={imgIndex} className="flex justify-center items-center w-full h-64">
-                      <Image
-                        src={image}
-                        alt={`Project ${project.title} - Image ${imgIndex + 1}`}
-                        layout="intrinsic"
-                        width={800} 
-                        height={450} 
-                        className="rounded-t-lg shadow-md"
-                      />
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-              </Carousel>
+              {mounted ? (
+                <Carousel
+                  opts={{ loop: true }}
+                  plugins={[
+                    Autoplay({
+                      delay: 2500,
+                      stopOnInteraction: true
+                    })
+                  ]}
+                  className="w-full max-w-md"
+                >
+                  <CarouselContent>
+                    {project.imageUrl.map((image, imgIndex) => (
+                      <CarouselItem key={imgIndex} className="flex justify-center items-center w-full h-64">
+                        <Image
+                          src={image}
+                          alt={`Project ${project.title} - Image ${imgIndex + 1}`}
+                          width={800} 
+                          height={450} 
+                          className="rounded-t-lg shadow-md object-cover w-full h-full"
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                </Carousel>
+              ) : (
+                <div className="w-full h-64 flex items-center justify-center bg-gray-100 dark:bg-gray-700">
+                  <div className="animate-pulse">Loading...</div>
+                </div>
+              )}
 
               <div className="flex flex-col gap-3 p-4 grow">
                 <h2 className="text-xl font-bold">{project.title}</h2>
