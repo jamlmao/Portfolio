@@ -5,11 +5,6 @@ import { Data } from "@/data/data";
 import { BlurFade } from "./magicui/blur-fade";
 
 const Intro = () => {
-    const [isMounted, setIsMounted] = useState(false);
-
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
 
     return (
         <BlurFade direction="left" delay={0.25}>
